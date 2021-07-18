@@ -23,14 +23,14 @@ Citizen.CreateThread(function()
                             if IsControlJustPressed(0, 47) then
                     
                                     TaskStartScenarioInPlace(PlayerPedId(), "WORLD_HUMAN_STAND_IMPATIENT", 0, true)
-                                    QBCore.Functions.Progressbar("sell_coral_items", "Check Pockets To Sell Coral", math.random(2000, 4000), false, true, {}, {}, {}, {}, function() -- Done
+                                    QBCore.Functions.Progressbar("sell_coral_items", QBCore.Shared._U(Locales, 'client_shop_thread_progressbar_1'), math.random(2000, 4000), false, true, {}, {}, {}, {}, function() -- Done
                                         ClearPedTasks(PlayerPedId())
                                         TriggerServerEvent('qb-diving:server:SellCoral')
                                         notInteressted = true
                                         SetTimeout(0, ClearTimeOut)
                                     end, function() -- Cancel
                                         ClearPedTasks(PlayerPedId())
-                                        QBCore.Functions.Notify("Canceled..", "error")
+                                        QBCore.Functions.Notify(QBCore.Shared._U(Locales, 'client_shop_thread_notify_1'), "error")
                                     end)
                                
                                 

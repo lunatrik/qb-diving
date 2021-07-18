@@ -41,7 +41,7 @@ AddEventHandler('qb-diving:client:SetDivingLocation', function(DivingLocation)
         SetBlipAsShortRange(LabelBlip, true)
 
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentSubstringPlayerName('Diving Area')
+        AddTextComponentSubstringPlayerName(QBCore.Shared._U(Locales, 'client_diving_Thread_DivingArea'))
         EndTextCommandSetBlipName(LabelBlip)
 
         CurrentDivingLocation.Blip.Label = LabelBlip
@@ -78,13 +78,13 @@ Citizen.CreateThread(function()
                             if not CoralLocation.PickedUp then
                                 DrawMarker(32, CoralLocation.coords.x, CoralLocation.coords.y, CoralLocation.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 1.0, 0.4, 255, 223, 0, 255, true, false, false, false, false, false, false)
                                 if CoralDistance <= 1.5 then
-                                    DrawText3D(CoralLocation.coords.x, CoralLocation.coords.y, CoralLocation.coords.z, '[E] Collecting coral')
+                                    DrawText3D(CoralLocation.coords.x, CoralLocation.coords.y, CoralLocation.coords.z, QBCore.Shared._U(Locales, 'client_diving_Thread_Drawing_1'))
                                     if IsControlJustPressed(0, 38) then
                                         -- loadAnimDict("pickup_object")
                                         local times = math.random(2, 5)
                                         CallCops()
                                         FreezeEntityPosition(Ped, true)
-                                        QBCore.Functions.Progressbar("take_coral", "Collecting coral", times * 1000, false, true, {
+                                        QBCore.Functions.Progressbar("take_coral", QBCore.Shared._U(Locales, 'client_diving_Thread_Progressbar_1'), times * 1000, false, true, {
                                             disableMovement = true,
                                             disableCarMovement = true,
                                             disableMouse = false,
@@ -188,7 +188,7 @@ RegisterNetEvent('qb-diving:client:UseGear')
 AddEventHandler('qb-diving:client:UseGear', function(bool)
     if bool then
         GearAnim()
-        QBCore.Functions.Progressbar("equip_gear", "Put on a diving suit", 5000, false, true, {}, {}, {}, {}, function() -- Done
+        QBCore.Functions.Progressbar("equip_gear", QBCore.Shared._U(Locales, 'client_diving_event_UseGear_progressbar_1'), 5000, false, true, {}, {}, {}, {}, function() -- Done
             DeleteGear()
             local maskModel = GetHashKey("p_d_scuba_mask_s")
             local tankModel = GetHashKey("p_s_scuba_tank_s")
@@ -217,12 +217,12 @@ AddEventHandler('qb-diving:client:UseGear', function(bool)
             currentGear.enabled = true
             TriggerServerEvent('qb-diving:server:RemoveGear')
             ClearPedTasks(PlayerPedId())
-            TriggerEvent('chatMessage', "SYSTEM", "error", "/divingsuit to take off your diving suit")
+            TriggerEvent('chatMessage', "SYSTEM", "error", QBCore.Shared._U(Locales, 'client_diving_event_RemoveGear_chatmessage_1'))
         end)
     else
         if currentGear.enabled then
             GearAnim()
-            QBCore.Functions.Progressbar("remove_gear", "Pull out a diving suit ..", 5000, false, true, {}, {}, {}, {}, function() -- Done
+            QBCore.Functions.Progressbar("remove_gear", QBCore.Shared._U(Locales, 'client_diving_event_RemoveGear_chatmessage_2'), 5000, false, true, {}, {}, {}, {}, function() -- Done
                 DeleteGear()
 
                 SetEnableScuba(PlayerPedId(), false)
@@ -230,10 +230,10 @@ AddEventHandler('qb-diving:client:UseGear', function(bool)
                 currentGear.enabled = false
                 TriggerServerEvent('qb-diving:server:GiveBackGear')
                 ClearPedTasks(PlayerPedId())
-                QBCore.Functions.Notify('You took your wetsuit off')
+                QBCore.Functions.Notify(QBCore.Shared._U(Locales, 'client_diving_event_RemoveGear_Notify_1'))
             end)
         else
-            QBCore.Functions.Notify('You are not wearing a diving gear ..', 'error')
+            QBCore.Functions.Notify(QBCore.Shared._U(Locales, 'client_diving_event_RemoveGear_Notify_2'), 'error')
         end
     end
 end)

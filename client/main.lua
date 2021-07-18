@@ -3,6 +3,7 @@ PlayerJob = {}
 
 RegisterNetEvent("QBCore:Client:OnPlayerLoaded")
 AddEventHandler("QBCore:Client:OnPlayerLoaded", function()
+   
     QBCore.Functions.TriggerCallback('qb-diving:server:GetBusyDocks', function(Docks)
         QBBoatshop.Locations["berths"] = Docks
     end)
@@ -28,7 +29,7 @@ AddEventHandler("QBCore:Client:OnPlayerLoaded", function()
         SetBlipColour(PoliceBlip, 29)
 
         BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName("Police boat")
+        AddTextComponentSubstringPlayerName(QBCore.Shared._U(Locales, 'client_garage_event_onJobUpdate_PoliceBoaths'))
         EndTextCommandSetBlipName(PoliceBlip)
         PoliceBlip = AddBlipForCoord(QBBoatshop.PoliceBoat2.x, QBBoatshop.PoliceBoat2.y, QBBoatshop.PoliceBoat2.z)
         SetBlipSprite(PoliceBlip, 410)
@@ -38,7 +39,7 @@ AddEventHandler("QBCore:Client:OnPlayerLoaded", function()
         SetBlipColour(PoliceBlip, 29)
     
         BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName("Police boat")
+        AddTextComponentSubstringPlayerName(QBCore.Shared._U(Locales, 'client_garage_event_onJobUpdate_PoliceBoaths'))
         EndTextCommandSetBlipName(PoliceBlip)
     end
 end)
@@ -66,20 +67,20 @@ AddEventHandler('qb-diving:client:UseJerrycan', function()
     local boat = IsPedInAnyBoat(ped)
     if boat then
         local curVeh = GetVehiclePedIsIn(ped, false)
-        QBCore.Functions.Progressbar("reful_boat", "Refueling boat ..", 20000, false, true, {
+        QBCore.Functions.Progressbar("reful_boat", QBCore.Shared._U(Locales, 'client_main_event_UseJerrycan_Progress'), 20000, false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,
             disableCombat = true,
         }, {}, {}, {}, function() -- Done
             exports['LegacyFuel']:SetFuel(curVeh, 100)
-            QBCore.Functions.Notify('The boat has been refueled', 'success')
+            QBCore.Functions.Notify(QBCore.Shared._U(Locales, 'client_main_event_UseJerrycan_notify_1'), 'success')
             TriggerServerEvent('qb-diving:server:RemoveItem', 'jerry_can', 1)
             TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['jerry_can'], "remove")
         end, function() -- Cancel
-            QBCore.Functions.Notify('Refueling has been canceled!', 'error')
+            QBCore.Functions.Notify(QBCore.Shared._U(Locales, 'client_main_event_UseJerrycan_notify_2'), 'error')
         end)
     else
-        QBCore.Functions.Notify('You are not in a boat', 'error')
+        QBCore.Functions.Notify(QBCore.Shared._U(Locales, 'client_main_event_UseJerrycan_notify_3'), 'error')
     end
 end)

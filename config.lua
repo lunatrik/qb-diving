@@ -1,12 +1,12 @@
 QBBoatshop = QBBoatshop or {}
 QBDiving = QBDiving or {}
+Locales = {}
 
 QBBoatshop.PoliceBoat = vector3(-800.67, -1494.54, 1.59)
 
 QBBoatshop.PoliceBoatSpawn = vector4(-793.58, -1501.4, 0.12, 111.5)
 
 QBBoatshop.PoliceBoat2 = vector3(-279.41, 6635.09, 7.51)
-
 
 QBBoatshop.PoliceBoatSpawn2 = vector4(-293.10, 6642.69, 0.15, 65.5)
 
@@ -29,9 +29,16 @@ QBBoatshop.Docks = {
         label = "Millars Boathouse",
         coords = {
             take = vector3(1299.24, 4216.69, 33.9),
-            put = vector4(1297.82, 4209.61, 30.12, 253.5),
+            put = vector4(1297.82, 4209.61, 30.12, 253.5)
         }
     },
+    ["favelas"] = {
+        label = "Favelas",
+        coords = {
+            take = vector3(713.2, 4092.95, 34.73),
+            put = vector4(716.47, 4085.72, 29.82, 233.2)
+        }
+    }
 }
 
 QBBoatshop.Depots = {
@@ -41,7 +48,7 @@ QBBoatshop.Depots = {
             take = vector3(-772.98, -1430.76, 1.59),
             put = vector4(-729.77, -1355.49, 1.19, 142.5)
         }
-    },
+    }
 }
 
 QBBoatshop.Locations = {
@@ -50,7 +57,7 @@ QBBoatshop.Locations = {
             ["boatModel"] = "seashark",
             ["coords"] = {
                 ["boat"] = vector4(-727.05, -1326.59, 1.06, 229.5),
-                ["buy"] = vector3(-723.3, -1323.61, 1.59),
+                ["buy"] = vector3(-723.3, -1323.61, 1.59)
             },
             ["inUse"] = false
         },
@@ -58,7 +65,7 @@ QBBoatshop.Locations = {
             ["boatModel"] = "dinghy",
             ["coords"] = {
                 ["boat"] = vector4(-732.84, -1333.5, 1.59, 229.5),
-                ["buy"] = vector3(-729.19, -1330.58, 1.67),
+                ["buy"] = vector3(-729.19, -1330.58, 1.67)
             },
             ["inUse"] = false
         },
@@ -66,7 +73,7 @@ QBBoatshop.Locations = {
             ["boatModel"] = "speeder",
             ["coords"] = {
                 ["boat"] = vector4(-737.84, -1340.83, 0.79, 229.5),
-                ["buy"] = vector3(-734.98, -1337.42, 1.67),
+                ["buy"] = vector3(-734.98, -1337.42, 1.67)
             },
             ["inUse"] = false
         },
@@ -74,19 +81,25 @@ QBBoatshop.Locations = {
             ["boatModel"] = "marquis",
             ["coords"] = {
                 ["boat"] = vector4(-741.53, -1349.7, 0.79, 229.5),
-                ["buy"] = vector3(-740.62, -1344.28, 1.67),
+                ["buy"] = vector3(-740.62, -1344.28, 1.67)
             },
             ["inUse"] = false
-        },
+        }
+    },
+    ["favelas"] = {
+        [1] = {
+            ["boatModel"] = "seashark",
+            ["coords"] = {
+                ["boat"] = vector4(1290.52, 4225.89, 30.12, 89.07),
+                ["buy"] = vector3(1299.49, 4227.51, 33.07)
+            },
+            ["inUse"] = false
+        }
     }
 }
 
 QBBoatshop.ShopBoats = {
-    ["dinghy"] = {
-        ["model"] = "dinghy",
-        ["label"] = "Dinghy",
-        ["price"] = 15000
-    },
+    ["dinghy"] = {["model"] = "dinghy", ["label"] = "Dinghy", ["price"] = 15000},
     ["speeder"] = {
         ["model"] = "speeder",
         ["label"] = "Speeder",
@@ -104,7 +117,10 @@ QBBoatshop.ShopBoats = {
     }
 }
 
-QBBoatshop.SpawnVehicle = vector4(-729.77, -1355.49, 1.19, 142.5)
+QBBoatshop.SpawnVehicle = {
+    ["berths"] = vector4(-729.77, -1355.49, 1.19, 142.5),
+    ["favelas"] = vector4(1290.52, 4225.89, 30.12, 89.07),
+}
 
 QBDiving.Locations = {
     [1] = {
@@ -127,11 +143,11 @@ QBDiving.Locations = {
                 [4] = {
                     coords = vector3(-2808.99, -385.56, -39.32),
                     PickedUp = false
-                },
+                }
             }
         },
         DefaultCoral = 4,
-        TotalCoral = 4,
+        TotalCoral = 4
     },
     [2] = {
         label = "Location 2",
@@ -149,11 +165,11 @@ QBDiving.Locations = {
                 [3] = {
                     coords = vector3(-3346.53, -50.4, -35.84),
                     PickedUp = false
-                },
+                }
             }
         },
         DefaultCoral = 3,
-        TotalCoral = 3,
+        TotalCoral = 3
     },
     [3] = {
         label = "Location 3",
@@ -171,11 +187,11 @@ QBDiving.Locations = {
                 [3] = {
                     coords = vector3(-3326.04, 1636.43, -40.98),
                     PickedUp = false
-                },
+                }
             }
         },
         DefaultCoral = 3,
-        TotalCoral = 3,
+        TotalCoral = 3
     },
     [4] = {
         label = "Location 4",
@@ -193,11 +209,11 @@ QBDiving.Locations = {
                 [3] = {
                     coords = vector3(2951.65, -1560.69, -28.36),
                     PickedUp = false
-                },
+                }
             }
         },
         DefaultCoral = 3,
-        TotalCoral = 3,
+        TotalCoral = 3
     },
     [5] = {
         label = "Location 5",
@@ -219,11 +235,11 @@ QBDiving.Locations = {
                 [4] = {
                     coords = vector3(3415.42, 1965.25, -52.04),
                     PickedUp = false
-                },
+                }
             }
         },
         DefaultCoral = 4,
-        TotalCoral = 4,
+        TotalCoral = 4
     },
     [6] = {
         label = "Location 6",
@@ -245,11 +261,11 @@ QBDiving.Locations = {
                 [4] = {
                     coords = vector3(2736.27, -2153.91, -20.88),
                     PickedUp = false
-                },
+                }
             }
         },
         DefaultCoral = 4,
-        TotalCoral = 4,
+        TotalCoral = 4
     },
     [7] = {
         label = "Location 7",
@@ -271,35 +287,35 @@ QBDiving.Locations = {
                 [4] = {
                     coords = vector3(525.37, 7259.12, -30.51),
                     PickedUp = false
-                },
+                }
             }
         },
         DefaultCoral = 4,
-        TotalCoral = 4,
-    },
+        TotalCoral = 4
+    }
 }
 
---ALSO CHANGE VALUES IN SERVER/MAIN.LUA
+-- ALSO CHANGE VALUES IN SERVER/MAIN.LUA
 QBDiving.CoralTypes = {
     [1] = {
         item = "dendrogyra_coral",
         maxAmount = math.random(1, 5),
-        price = math.random(70, 100),
+        price = math.random(70, 100)
     },
     [2] = {
         item = "antipatharia_coral",
         maxAmount = math.random(2, 7),
-        price = math.random(50, 70),
+        price = math.random(50, 70)
     }
 }
 
 QBDiving.SellLocations = {
     [1] = {
-    ["coords"] = vector3(-1684.13, -1068.91, 13.15)
+        ["coords"] = vector3(-1684.13, -1068.91, 13.15)
         -- ["x"] = -1684.13,
         -- ["y"] = -1068.91,
         -- ["z"] = 13.15
-}
+    }
 }
 
 -- [1] = {
@@ -310,4 +326,4 @@ QBDiving.SellLocations = {
 --     }
 -- }
 
---232.5, y = 368.7, z = 105.94
+-- 232.5, y = 368.7, z = 105.94
