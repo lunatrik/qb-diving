@@ -31,13 +31,6 @@ QBBoatshop.Docks = {
             take = vector3(1299.24, 4216.69, 33.9),
             put = vector4(1297.82, 4209.61, 30.12, 253.5)
         }
-    },
-    ["favelas"] = {
-        label = "Favelas",
-        coords = {
-            take = vector3(713.2, 4092.95, 34.73),
-            put = vector4(716.47, 4085.72, 29.82, 233.2)
-        }
     }
 }
 
@@ -85,16 +78,6 @@ QBBoatshop.Locations = {
             },
             ["inUse"] = false
         }
-    },
-    ["favelas"] = {
-        [1] = {
-            ["boatModel"] = "seashark",
-            ["coords"] = {
-                ["boat"] = vector4(1290.52, 4225.89, 30.12, 89.07),
-                ["buy"] = vector3(1299.49, 4227.51, 33.07)
-            },
-            ["inUse"] = false
-        }
     }
 }
 
@@ -118,8 +101,7 @@ QBBoatshop.ShopBoats = {
 }
 
 QBBoatshop.SpawnVehicle = {
-    ["berths"] = vector4(-729.77, -1355.49, 1.19, 142.5),
-    ["favelas"] = vector4(1290.52, 4225.89, 30.12, 89.07),
+    ["berths"] = vector4(-729.77, -1355.49, 1.19, 142.5)
 }
 
 QBDiving.Locations = {
