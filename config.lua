@@ -15,7 +15,7 @@ QBBoatshop.Docks = {
         label = "LSYMC Boathouse",
         coords = {
             take = vector3(-794.66, -1510.83, 1.59),
-            put = vector4(-793.58, -1501.4, 0.12, 111.5)
+            put = vector4(-795.58, -1504.4, 0.40, 140.5)
         }
     },
     ["paletto"] = {
